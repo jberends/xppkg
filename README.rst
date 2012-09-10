@@ -15,10 +15,10 @@ Installation of Scenery, Aircraft, NavData, Plugins are a pain. The sim-communit
 quality resources, and arranging and browsing all sites to find your own golden installation is always a pain.
 After returning to X-plane from the FS world after a few years, nothing changed.
 
-  * xppkg is a hassle-free X-Plane package installer, much alike pip in python:
+  * XPpkg is a hassle-free X-Plane package installer, much alike pip in python:
     to download, install and upgrade various X-Plane packages from various internet sources.
 
-  * xppkg for developers of packages for X-Plane should be a hassle free way to distribute their packages
+  * XPpkg for developers of packages for X-Plane should be a hassle free way to distribute their packages
 
 The X-plane community, with its roots in the \*NIX world can be more
 
