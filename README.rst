@@ -1,8 +1,15 @@
-# Main Philisophy
+==============================================
+XPpkg - Hassle free X-Plane package management
+==============================================
+
+
+Main Philisophy
+===============
 
 This document desribes the main philisophy why xppkg was created.
 
-# Main Pain
+Main Pain
+=========
 
 Installation of Scenery, Aircraft, NavData, Plugins are a pain. The sim-community is flooded with good (and bad)
 quality resources, and arranging and browsing all sites to find your own golden installation is always a pain.
@@ -13,11 +20,12 @@ After returning to X-plane from the FS world after a few years, nothing changed.
 
 > * xppkg for developers of packages for X-Plane should be a hassle free way to distribute their packages
 
-The X-plane community, with its roots in the *NIX world can be more
+The X-plane community, with its roots in the \*NIX world can be more
 
-# Inspiration
+Inspiration
+===========
 
-Main inspiration comes from my work within the *NIX world (That is essential Linux and the *NIX with the best graphical
+Main inspiration comes from my work within the \*NIX world (That is essential Linux and the \*NIX with the best graphical
 UI on top: Mac OSX) and python.
 
 Python Package Management Examples:
@@ -38,3 +46,7 @@ Mac OSX Package Management Examples:
 Other Examples:
 
 * rubygems (http://rubygems.org/)
+
+Website
+=======
+A github repository will function for now as the main place for collaboration at https://github.com/jberends/xppkg
