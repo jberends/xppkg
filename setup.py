@@ -29,4 +29,5 @@ setup(
     packages=['xppkg',],
     license='Attribution-NonCommercial-ShareAlike 3.0 (CC BY-NC-SA 3.0)',
     long_description=open('README.rst').read(),
+    requires=open('requirements.txt').readlines()
 )
