@@ -1,11 +1,12 @@
 """
 Finds the X-SYSTEM location depending on your environment
 """
+import platform
 
 XSYSTEM_LOCATION_HELPERS={
-    'Darwin':'file://Applications/X-Plane 10',
-    'Win':'file://C:/Program Files/X-Plane 10',
-    'Linux':'file://opt/X-plane 10'
+    'Darwin':'/Applications/X-Plane 10',
+    'Win':'C:/Program Files/X-Plane 10',
+    'Linux':'/opt/X-plane 10'
 }
 
 XPLANE_VERSION_CMD={
@@ -13,3 +14,7 @@ XPLANE_VERSION_CMD={
     'Win':'X-Plane.exe --version',
     'Linux':'X-Plane --version'
 }
+
+SYSTEM = platform.system()
+
+

@@ -20,8 +20,6 @@ After returning to X-plane from the FS world after a few years, nothing changed.
 
   * XPpkg for developers of packages for X-Plane should be a hassle free way to distribute their packages
 
-The X-plane community, with its roots in the \*NIX world can be more
-
 Inspiration
 ===========
 
