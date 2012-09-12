@@ -1,5 +1,8 @@
 AUTHORS.txt
 LICENSE.txt
 README.rst
+requirements.txt
 setup.py
 xppkg/__init__.py
+xppkg/snapshot.py
+xppkg/xp_location.py
