@@ -3,7 +3,6 @@ Finds the X-SYSTEM location depending on your environment
 """
 import glob
 import os
-import platform
 from xppkg import util
 from xppkg.exceptions import SimulatorNotInstalledError
 from xppkg import settings
@@ -26,6 +25,7 @@ def bootstrap():
     get_version_cmd = [os.path.join(settings.XSYSTEM_PATH,
         settings.XPLANE_EXECUTABLE[settings.SYSTEM]),'--version']
     settings.XSYSTEM_VERSION = util.call_subprocess(get_version_cmd, show_stdout=False)
+
 
 
 

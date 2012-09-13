@@ -17,3 +17,4 @@ INSTALLATION_LOG='/Output/preferences/directory.txt'
 SYSTEM = platform.system()
 XSYSTEM_PATH = None
 XSYSTEM_VERSION = None
+
