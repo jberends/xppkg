@@ -3,6 +3,7 @@ import shutil
 import subprocess
 import unittest
 import sys
+from xppkg import util
 
 class TestDistribution(unittest.TestCase):
     DIST_DIR = 'dist'
@@ -22,8 +23,10 @@ class TestDistribution(unittest.TestCase):
         self.assertFalse(os.path.isdir(self.dist_dir))
         # test if python setup.py dist return 0
 
-        returncode = subprocess.call([sys.executable, 'setup.py','sdist'])
-        self.assertEqual(returncode,0)
+        returned_output = util.call_subprocess([sys.executable, 'setup.py','sdist'])
+        #returned_output = subprocess.call([sys.executable, 'setup.py','sdist'])
+        #self.assertEqual(returned_output,0)
+        self.assertIsNone(returned_output)
         self.assertTrue(os.path.isdir(self.dist_dir))
         filenames = os.listdir(self.dist_dir)
         self.assertGreaterEqual(len(filenames),1)

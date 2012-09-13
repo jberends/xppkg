@@ -8,11 +8,17 @@ from exceptions import InstallationError
 from backwardcompat import console_to_str
 from log import logger
 
-def call_subprocess(cmd, show_stdout=True,
-                    filter_stdout=None, cwd=None,
+def call_subprocess(cmd,
+                    show_stdout=True,
+                    filter_stdout=None,
+                    cwd=None,
                     raise_on_returncode=True,
-                    command_level=logger.DEBUG, command_desc=None,
+                    command_level=logger.DEBUG,
+                    command_desc=None,
                     extra_environ=None):
+    """
+    Uses subprocess to call a cmd with some handling
+    """
     if command_desc is None:
         cmd_parts = []
         for part in cmd:

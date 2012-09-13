@@ -1,2 +1,3 @@
 include *.md *.txt *.rst
 recursive-include docs *.md *.txt *.htm *.pdf
+exclude .*

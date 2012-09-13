@@ -1,2 +1,4 @@
 __author__ = 'Jochem Berends'
-__version__ = '0.1dev'
+
+# This version is used by the setup.py
+__version__ = '0.1dev.1'
