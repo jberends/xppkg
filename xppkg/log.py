@@ -1,7 +1,7 @@
 # borrowed some util functions from the pip project. (http://www.pip-installer.org)
 # that code is written under the MIT license, copyright by the pip-developers
 
-#Copyright (c) 2008-2012 The pip developers (see AUTHORS.txt file)
+#Copyright (c) 2008-2012 The pip developers
 #
 #Permission is hereby granted, free of charge, to any person obtaining
 #a copy of this software and associated documentation files (the
@@ -23,7 +23,8 @@
 #WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-"""Logging
+"""
+Logging
 """
 
 import sys
@@ -210,3 +211,4 @@ class Logger(object):
         self.consumers.extend(to_add)
 
 logger = Logger()
+logger.consumers.extend([(1, sys.stdout)])

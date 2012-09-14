@@ -4,9 +4,9 @@ import os
 
 import subprocess
 import sys
-from exceptions import InstallationError
 from backwardcompat import console_to_str
 from log import logger
+import hashlib
 
 def call_subprocess(cmd,
                     show_stdout=True,
@@ -70,7 +70,7 @@ def call_subprocess(cmd,
             if all_output:
                 logger.notify('Complete output from command %s:' % command_desc)
                 logger.notify('\n'.join(all_output) + '\n----------------------------------------')
-            raise InstallationError(
+            raise Exception(
                 "Command %s failed with error code %s in %s"
                 % (command_desc, proc.returncode, cwd))
         else:
@@ -79,3 +79,21 @@ def call_subprocess(cmd,
                 % (command_desc, proc.returncode, cwd))
     if stdout is not None:
         return ''.join(all_output)
+
+
+def get_file_hash(filename):
+    """
+    gets a hash from a file using a hash_algorithm.
+    hash_algoritm implemented is 'md5'
+
+    >>> get_file_hash('__init__.py')
+    46564
+    """
+    hash = hashlib.md5()
+    with open(filename,'rb', 8192) as f:
+        for chunk in iter(lambda: f.read(8192), b''):
+            hash.update(chunk)
+    return hash.hexdigest()
+
+
+
