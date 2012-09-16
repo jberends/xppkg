@@ -32,7 +32,7 @@ XSYSTEM_VERSION = ''
 SNAP_IGNORED_PATTERNS = ['.DS_Store','.svn', '*.png','*.gif' ]
 if DEBUG:
     SNAP_IGNORED_PATTERNS.extend(['*.dsf','*.osf','*.osm','*.acf','*.wav','*.afl','*.txt','*.pdf',
-                                  '*.obj','*.ter','*.pol','*.dds','*.wpn'])
+                                  '*.obj','*.ter','*.pol','*.for','*.dds','*.wpn','*.bmp'])
 
 """
 Bootstraps by discovering the XSYSTEM_PATH and XSYSTEM_VERSION

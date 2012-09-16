@@ -9,6 +9,22 @@ from log import logger
 
 SNAPSHOT_PATHNAME = 'snap.yml'
 
+import time
+
+def timeit(method):
+
+    def timed(*args, **kw):
+        ts = time.time()
+        result = method(*args, **kw)
+        te = time.time()
+
+        logger.debug('%r (%r, %r) %2.2f sec' %\
+              (method.__name__, args, kw, te-ts))
+        return result
+
+    return timed
+
+@timeit
 def snapshot(path=None, ignore_filters=None, calculate_md5=False):
     """
     makes a snapshot of the X-plane environment and stores this inside a YAML file
@@ -25,25 +41,26 @@ def snapshot(path=None, ignore_filters=None, calculate_md5=False):
         if ignore_filters:
             # get myself a list of files that are ignored
             ignored_filenames = []
-            ignored_filenames.extend([fnmatch.filter(filenames, filter) for filter in ignore_filters])
+            ignored_filenames.extend(
+                [fnmatch.filter(filenames, filter.lower()) for filter in ignore_filters])
             # flatten list
             ignored_filenames = [item for sublist in ignored_filenames for item in sublist]
             filenames = [fn for fn in filenames if fn not in ignored_filenames]
         if len(dirpath) > 80:
-            logger.notify('snapping %i files in %s.. ..%s' % (len(filenames), dirpath[:25], dirpath[-40:]))
+            logger.notify('snapping %i files in %s.. ..%s' % (len(filenames), dirpath[:25], dirpath[-45:]))
         else:
             logger.notify('snapping %i files in %s' % (len(filenames), dirpath))
-        #if len(filenames) >= 1 and not [fnmatch.filter(dirpath,filter) for filter in ignore_filters]:
-        if len(filenames) >= 1:
+        if len(filenames) >= 1 and not [fnmatch.fnmatch(dirpath, filter) for filter in ignore_filters]:
+        #if len(filenames) >= 1:
             if calculate_md5:
                 filenames_with_md5 = []
                 for fn in filenames:
-                    hashsum = unicode(util.get_file_hash(os.path.join(dirpath,fn)))
+                    hashsum = str(util.get_file_hash(os.path.join(dirpath,fn)))
                     filenames_with_md5.append( {fn: hashsum} )
                 snap.update({dirpath: filenames_with_md5})
-            else:
-                snap.update({dirpath: filenames})
-            dirpaths.append(dirpath)
+        else:
+            snap.update({dirpath: filenames})
+        dirpaths.append(dirpath)
     return snap
 
 
