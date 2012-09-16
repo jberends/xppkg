@@ -29,7 +29,7 @@ XSYSTEM_PATH = ''
 XSYSTEM_VERSION = ''
 
 # Ignored file patterns in the snap
-SNAP_IGNORED_PATTERNS = ['.DS_Store','.svn', '*.png','*.gif' ]
+SNAP_IGNORED_PATTERNS = ['.DS_Store','*.svn*', '*.git*', '*.png','*.gif' ]
 if DEBUG:
     SNAP_IGNORED_PATTERNS.extend(['*.dsf','*.osf','*.osm','*.acf','*.wav','*.afl','*.txt','*.pdf',
                                   '*.obj','*.ter','*.pol','*.for','*.dds','*.wpn','*.bmp'])

@@ -3,70 +3,104 @@ Takes snapshot of a directory and stores that inside a YAML file
 """
 import fnmatch
 import os
-import yaml
-import settings, util
+import  util
 from log import logger
 
 SNAPSHOT_PATHNAME = 'snap.yml'
 
-import time
 
-def timeit(method):
 
-    def timed(*args, **kw):
-        ts = time.time()
-        result = method(*args, **kw)
-        te = time.time()
-
-        logger.debug('%r (%r, %r) %2.2f sec' %\
-              (method.__name__, args, kw, te-ts))
-        return result
-
-    return timed
-
-@timeit
-def snapshot(path=None, ignore_filters=None, calculate_md5=False):
-    """
-    makes a snapshot of the X-plane environment and stores this inside a YAML file
-
+@util.timeit
+def snapshot(path=None, ignore_filters=None, calculate_md5=False, calculate_size=False):
+    """ makes a snapshot of the X-plane environment and stores this inside a YAML file
     add md5 sum to every file is requested
+    you may provide a list of filepatterns to ignore
+
+    >>> snapshot(os.getwcwd())
+    []
+    # test2 with ignores (wildcards)
+    >>> snapshot(os.getcwd(), ignore_filters=['__*__.py','*.pyc'])
+    []
+    # test3 without ignores with sizes
+    >>> snapshot(os.getcwd(), calculate_size=True)
+    []
+    # test4 with ignores and sizes
+    >>> snapshot(os.ignore_filters=['__*__.py','*.pyc'], calculate_size=True)
+    []
+    # test4 with ignores and md5
+    >>> snapshot(os.ignore_filters=['__*__.py','*.pyc'], calculate_md5=True)
+    []
+    # test6 everything
+    >>> snapshot(os.ignore_filters=['__*__.py','*.pyc'], calculate_md5=True, calculate_size=True)
+    []
+
+    :type ignore_filters: list
+    :type calculate_size: bool
+    :type calculate_md5: bool
     """
+
     path = path or os.getcwd()
     snap = {}
     dirpaths = []
+
+    if not os.path.isdir(path):
+        raise IOError, ('Directory %s not found, unable to make a snapshot of it', path)
+
     logger.notify('Starting the snapshot')
     if ignore_filters:
         logger.notify('Ignoring filenames with filters: %s' % ignore_filters)
     for dirpath, dirnames, filenames in os.walk(path):
-        if ignore_filters:
-            # get myself a list of files that are ignored
-            ignored_filenames = []
-            ignored_filenames.extend(
-                [fnmatch.filter(filenames, filter.lower()) for filter in ignore_filters])
-            # flatten list
-            ignored_filenames = [item for sublist in ignored_filenames for item in sublist]
-            filenames = [fn for fn in filenames if fn not in ignored_filenames]
-        if len(dirpath) > 80:
-            logger.notify('snapping %i files in %s.. ..%s' % (len(filenames), dirpath[:25], dirpath[-45:]))
-        else:
-            logger.notify('snapping %i files in %s' % (len(filenames), dirpath))
-        if len(filenames) >= 1 and not [fnmatch.fnmatch(dirpath, filter) for filter in ignore_filters]:
-        #if len(filenames) >= 1:
-            if calculate_md5:
-                filenames_with_md5 = []
-                for fn in filenames:
-                    hashsum = str(util.get_file_hash(os.path.join(dirpath,fn)))
-                    filenames_with_md5.append( {fn: hashsum} )
-                snap.update({dirpath: filenames_with_md5})
-        else:
-            snap.update({dirpath: filenames})
-        dirpaths.append(dirpath)
+        if ignore_filters and [fnmatch.fnmatch(dirpath, filter) for filter in ignore_filters]:
+            if dirpath not in snap:
+                snap.update({dirpath: {}})
+            # do filtering first
+            if ignore_filters:
+                # get myself a list of files that are ignored
+                ignored_filenames = []
+                ignored_filenames.extend(
+                    [fnmatch.filter(filenames, filter.lower()) for filter in ignore_filters])
+                # flatten list
+                ignored_filenames = [item for sublist in ignored_filenames for item in sublist]
+                filenames = [fn for fn in filenames if fn not in ignored_filenames]
+            # filenames are now cleaned and rinsed
+            if dirpath is not None and len(dirpath) > 80:
+                logger.notify('snapping %i files in %s.. ..%s' % (len(filenames), dirpath[:25], dirpath[-45:]))
+            else:
+                logger.notify('snapping %i files in %s' % (len(filenames), dirpath))
+
+            # do the actual snapping and sizing and md5-ing here
+            if len(filenames) >= 1:
+                if calculate_md5:
+                    for fn in filenames:
+                        hashsum = str(util.get_file_hash(os.path.join(dirpath,fn)))
+                        if fn in snap[dirpath]:
+                            snap[dirpath][fn].update({'md5':hashsum})
+                        else:
+                            snap[dirpath].update({fn: {'md5':hashsum}})
+                if calculate_size:
+                    filesizes = []
+                    for fn in filenames:
+                        filesize = os.path.getsize(os.path.join(dirpath,fn))
+                        if fn in snap[dirpath]:
+                            snap[dirpath][fn].update({'size':filesize})
+                        else:
+                            snap[dirpath].update({fn: {'size':filesize}})
+                        filesizes.append(filesize)
+                    snap[dirpath].update({'DIR_SIZE': sum(filesizes)})
+                if not calculate_md5 and not calculate_size:
+                    snap[dirpath] = filenames
     return snap
 
 
 
 if __name__ == '__main__':
-    snap = snapshot(settings.XSYSTEM_PATH, ignore_filters=settings.SNAP_IGNORED_PATTERNS, calculate_md5=True)
+    #snap = snapshot(settings.XSYSTEM_PATH, ignore_filters=settings.SNAP_IGNORED_PATTERNS, calculate_md5=True)
     #snap = snapshot(os.getcwd(), ignore_filters=['__*__.py','*.pyc'], calculate_md5=True)
-    yaml.dump(snap, open(SNAPSHOT_PATHNAME, 'w'))
+    #yaml.dump(snap, open(SNAPSHOT_PATHNAME, 'w'))
 
+    #snaped = yaml.load(open(SNAPSHOT_PATHNAME))
+
+    dist_path = '/Users/jochem/Downloads/OpenSceneryX'
+    #snap = snapshot(dist_path, calculate_size=True)
+    snap = snapshot(os.getcwd(), ignore_filters=['__*__.py','*.pyc','*.git*'], calculate_size=True)
+    pass

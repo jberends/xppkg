@@ -1,7 +1,7 @@
 # borrowed some util functions from the pip project. (http://www.pip-installer.org)
 # that code is written under the MIT license, copyright by the pip-developers
 import os
-
+import time
 import subprocess
 import sys
 from backwardcompat import console_to_str
@@ -95,5 +95,15 @@ def get_file_hash(filename):
             hash.update(chunk)
     return hash.hexdigest()
 
+def timeit(method):
 
+    def timed(*args, **kw):
+        ts = time.time()
+        result = method(*args, **kw)
+        te = time.time()
+
+        logger.debug('%r (%r, %r) %2.2f sec' %\
+                     (method.__name__, args, kw, te-ts))
+        return result
+    return timed
 

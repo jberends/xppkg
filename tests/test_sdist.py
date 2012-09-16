@@ -1,6 +1,5 @@
 import os
 import shutil
-import subprocess
 import unittest
 import sys
 from xppkg import util
