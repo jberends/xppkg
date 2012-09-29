@@ -21,7 +21,7 @@ Topic :: Games/Entertainment :: Simulation
 setup(
     name='XPpkg',
     author=__author__,
-    author_email=__author_email__,
+    author_email='%s <%s>' % (__author__, __author_email__),
     url='https://github.com/jberends/xppkg',
     version=__version__,
     description='X-Plane hassle free package installer',
