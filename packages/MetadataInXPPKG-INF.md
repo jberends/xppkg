@@ -60,8 +60,8 @@ The PIP314 [http://www.python.org/dev/peps/pep-0314/] is used for main inspirati
 ### Version (required)
 
   A string containing the package's version number. This field should be parseable by one of the Version classes
-  (StrictVersion or LooseVersion) in the distutils.version
-  module.
+  (StrictVersion or LooseVersion) in the distutils.version module
+  [http://epydoc.sourceforge.net/stdlib/distutils.version-module.html]
 
   Example:
 
