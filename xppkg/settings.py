@@ -1,5 +1,7 @@
 """
-Finds the X-SYSTEM location depending on your environment, bootstraps the settings
+Settings file for XPPKG
+
+It includes logic to finds the X-SYSTEM location depending on your environment, bootstraps the settings
 """
 
 import platform
@@ -28,6 +30,10 @@ SYSTEM = platform.system()
 XSYSTEM_PATH = ''
 XSYSTEM_VERSION = ''
 
+
+XPPKG_INF_FILENAME = 'XPPKG-INF.yaml'
+XPPKG_REPOS_URL = 'http://github.org/jberends/xppkg/packages'
+
 # Ignored file patterns in the snap
 SNAP_IGNORED_PATTERNS = ['.DS_Store','*.svn*', '*.git*', '*.png','*.gif' ]
 if DEBUG:
@@ -47,8 +53,7 @@ else:
     ('Cannot find X-Plane installation at %s' % XSYSTEM_LOCATION_HELPERS[SYSTEM])
 
 # set XSYSTEM_VERSION
-get_version_cmd = [os.path.join(XSYSTEM_PATH,
-    XPLANE_EXECUTABLE[SYSTEM]), '--version']
+get_version_cmd = [os.path.join(XSYSTEM_PATH, XPLANE_EXECUTABLE[SYSTEM]), '--version']
 XSYSTEM_VERSION = util.call_subprocess(get_version_cmd, show_stdout=False)
 
 if __name__ == '__main__':

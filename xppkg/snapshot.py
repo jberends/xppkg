@@ -11,7 +11,7 @@ SNAPSHOT_PATHNAME = 'snap.yml'
 
 
 @util.timeit
-def snapshot(path=None, ignore_filters=None, calculate_md5=False, calculate_size=False):
+def snapshot(path=None, ignore_filters=None, md5=False, size=False, datetime=False):
     """ makes a snapshot of the X-plane environment and stores this inside a YAML file
     add md5 sum to every file is requested
     you may provide a list of filepatterns to ignore
@@ -22,21 +22,22 @@ def snapshot(path=None, ignore_filters=None, calculate_md5=False, calculate_size
     >>> snapshot(os.getcwd(), ignore_filters=['__*__.py','*.pyc'])
     []
     # test3 without ignores with sizes
-    >>> snapshot(os.getcwd(), calculate_size=True)
+    >>> snapshot(os.getcwd(), size=True)
     []
     # test4 with ignores and sizes
-    >>> snapshot(os.ignore_filters=['__*__.py','*.pyc'], calculate_size=True)
+    >>> snapshot(os.ignore_filters=['__*__.py','*.pyc'], size=True)
     []
     # test4 with ignores and md5
-    >>> snapshot(os.ignore_filters=['__*__.py','*.pyc'], calculate_md5=True)
+    >>> snapshot(os.ignore_filters=['__*__.py','*.pyc'], md5=True)
     []
     # test6 everything
-    >>> snapshot(os.ignore_filters=['__*__.py','*.pyc'], calculate_md5=True, calculate_size=True)
+    >>> snapshot(os.ignore_filters=['__*__.py','*.pyc'], md5=True, size=True)
     []
 
+    :type datetime: bool
     :type ignore_filters: list
-    :type calculate_size: bool
-    :type calculate_md5: bool
+    :type size: bool
+    :type md5: bool
     """
 
     path = path or os.getcwd()
@@ -70,14 +71,14 @@ def snapshot(path=None, ignore_filters=None, calculate_md5=False, calculate_size
 
             # do the actual snapping and sizing and md5-ing here
             if len(filenames) >= 1:
-                if calculate_md5:
+                if md5:
                     for fn in filenames:
                         hashsum = str(util.get_file_hash(os.path.join(dirpath,fn)))
                         if fn in snap[dirpath]:
                             snap[dirpath][fn].update({'md5':hashsum})
                         else:
                             snap[dirpath].update({fn: {'md5':hashsum}})
-                if calculate_size:
+                if size:
                     filesizes = []
                     for fn in filenames:
                         filesize = os.path.getsize(os.path.join(dirpath,fn))
@@ -87,7 +88,11 @@ def snapshot(path=None, ignore_filters=None, calculate_md5=False, calculate_size
                             snap[dirpath].update({fn: {'size':filesize}})
                         filesizes.append(filesize)
                     snap[dirpath].update({'DIR_SIZE': sum(filesizes)})
-                if not calculate_md5 and not calculate_size:
+                if datetime:
+                    for fn in filenames:
+                        if fn in snap[dirpath]:
+                            snap[dirpath][fn].update({'modified_on':getmtime(os.path.join(dirpath, fn))})
+                if not md5 and not size and not datetime:
                     snap[dirpath] = filenames
     return snap
 
@@ -102,5 +107,5 @@ if __name__ == '__main__':
 
     dist_path = '/Users/jochem/Downloads/OpenSceneryX'
     #snap = snapshot(dist_path, calculate_size=True)
-    snap = snapshot(os.getcwd(), ignore_filters=['__*__.py','*.pyc','*.git*'], calculate_size=True)
+    snap = snapshot(os.getcwd(), ignore_filters=['__*__.py','*.pyc','*.git*'], size=True)
     pass
