@@ -6,6 +6,8 @@ It includes logic to finds the X-SYSTEM location depending on your environment, 
 
 import platform
 import os
+import urllib
+import urlparse
 import util
 import exceptions
 
@@ -32,7 +34,7 @@ XSYSTEM_VERSION = ''
 
 
 XPPKG_INF_FILENAME = 'XPPKG-INF.yaml'
-XPPKG_REPOS_URL = 'http://github.org/jberends/xppkg/packages'
+XPPKG_REPOS_URL = 'https://raw.github.com/jberends/xppkg/master/packages/'
 
 # Ignored file patterns in the snap
 SNAP_IGNORED_PATTERNS = ['.DS_Store','*.svn*', '*.git*', '*.png','*.gif' ]
@@ -55,6 +57,9 @@ else:
 # set XSYSTEM_VERSION
 get_version_cmd = [os.path.join(XSYSTEM_PATH, XPLANE_EXECUTABLE[SYSTEM]), '--version']
 XSYSTEM_VERSION = util.call_subprocess(get_version_cmd, show_stdout=False)
+
+XPPKG_CATEGORIES_URL = urlparse.urljoin(XPPKG_REPOS_URL,'categories.txt')
+XPPKG_CATEGORIES = urllib.urlopen(XPPKG_CATEGORIES_URL).read().split('\n')
 
 if __name__ == '__main__':
     pass

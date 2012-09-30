@@ -21,37 +21,37 @@ classification of the packages. Some modifications for X-Plane use is made.
 
 The following key:value pair examples are handy
 
-  Package Description
-  [source: the Trove project]
-    Metadata-Version -- The version of the standard in use 1.0 is current
-    Package -- the package name
-    Version -- the package version (according to http://epydoc.sourceforge.net/stdlib/distutils.version-module.html)
-    Architecture -- architecture the package is for
-        win,mac,linux
-    Author -- contact email of package maker
-    Depends -- declares an absolute dependency
-        X-Plane > 10 (X-plane is in this sense a virtual package)
-    Recommends -- declares a strong but not absolute dependency
-    Suggests -- recommends other packages to install
-    Pre-Depends -- declares an installation dependency
-    Conflicts -- says what this cannot coexist with
-    Replaces -- declares that this replaces given packages (not versions)
-    Provides -- declares `virtual' packages for dependency purposes
-    Description -- multiline description of package.
-    Section -- application area of the package
-        aircraft
-        livery
-        scenery
-        plugin
-        navdata
-    Installed-Size -- installed size of the package (optional, calculated)
-    Date -- last-modified-date of metadata
-    Changes -- human-readable changelog data (optional)
-    Size -- size of binary package (optional, calculated)
-    MD5sum -- MD5 checksum of the package (optional, calculated)
+      Package Description
+      [source: the Trove project]
+        Metadata-Version -- The version of the standard in use 1.0 is current
+        Package -- the package name
+        Version -- the package version (according to http://epydoc.sourceforge.net/stdlib/distutils.version-module.html)
+        Architecture -- architecture the package is for
+            win,mac,linux
+        Author -- contact email of package maker
+        Depends -- declares an absolute dependency
+            X-Plane > 10 (X-plane is in this sense a virtual package)
+        Recommends -- declares a strong but not absolute dependency
+        Suggests -- recommends other packages to install
+        Pre-Depends -- declares an installation dependency
+        Conflicts -- says what this cannot coexist with
+        Replaces -- declares that this replaces given packages (not versions)
+        Provides -- declares `virtual' packages for dependency purposes
+        Description -- multiline description of package.
+        Section -- application area of the package
+            aircraft
+            livery
+            scenery
+            plugin
+            navdata
+        Installed-Size -- installed size of the package (optional, calculated)
+        Date -- last-modified-date of metadata
+        Changes -- human-readable changelog data (optional)
+        Size -- size of binary package (optional, calculated)
+        MD5sum -- MD5 checksum of the package (optional, calculated)
 
-  [source: PyPi additional key:value for installation]
-    ReleaseURL -- The URL where to obtain the original ZIP package.
+      [source: PyPi additional key:value for installation]
+        ReleaseURL -- The URL where to obtain the original ZIP package.
 
 
 ## Supporting Developers
