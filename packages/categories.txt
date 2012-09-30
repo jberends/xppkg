@@ -1,3 +1,63 @@
+X-Plane :: Plugin
+X-Plane :: Controllers :: Joystick
+X-Plane :: Controllers :: Full Cockpit
+X-Plane :: Aircraft
+X-Plane :: Aircraft :: Civilian Fixed-Wing Aircraft
+X-Plane :: Aircraft :: Civilian Fixed-Wing Aircraft :: %{ICAO_CODE}s
+X-Plane :: Aircraft :: Civilian Fixed-Wing Airliner
+X-Plane :: Aircraft :: Civilian Fixed-Wing Airliner :: %{ICAO_CODE}s
+X-Plane :: Aircraft :: Civilian Fixed-Wing General Aviation
+X-Plane :: Aircraft :: Civilian Fixed-Wing General Aviation :: %{ICAO_CODE}s
+X-Plane :: Aircraft :: Gliders (all times)
+X-Plane :: Aircraft :: Gliders (all times)  :: %{ICAO_CODE}s
+X-Plane :: Aircraft :: Helicopters and Rotorcraft
+X-Plane :: Aircraft :: Helicopters and Rotorcraft :: %{ICAO_CODE}s
+X-Plane :: Aircraft :: Military Fixed-Wing
+X-Plane :: Aircraft :: Military Fixed-Wing :: %{ICAO_CODE}s
+X-Plane :: Aircraft :: Spacecraft and Mars
+X-Plane :: Aircraft :: Custom Designs
+X-Plane :: Aircraft :: Radio Controlled Aircraft
+X-Plane :: Aircraft :: Liveries
+X-Plane :: Aircraft :: Liveries :: %{Aircraft}
+X-Plane :: Scenery
+X-Plane :: Scenery :: Objects
+X-Plane :: Scenery :: Textures
+X-Plane :: Scenery :: Scenery Packages Environment (ENV)
+X-Plane :: Scenery :: Scenery Packages (DSF)
+X-Plane :: Region :: %{ICAO_LOCATION}s
+X-Plane :: Region :: %{COUNTRY_CODE_ISO3166}s
+X-Plane :: Region :: Eastern Africa
+X-Plane :: Region :: Middle Africa
+X-Plane :: Region :: Northern Africa
+X-Plane :: Region :: Southern Africa
+X-Plane :: Region :: Western Africa
+X-Plane :: Region :: Northern America
+X-Plane :: Region :: Latin America and the Caribbean
+X-Plane :: Region :: Caribbean
+X-Plane :: Region :: Central America
+X-Plane :: Region :: South America
+X-Plane :: Region :: Central Asia
+X-Plane :: Region :: Eastern Asia
+X-Plane :: Region :: Southern Asia
+X-Plane :: Region :: South-Eastern Asia
+X-Plane :: Region :: Western Asia
+X-Plane :: Region :: Eastern Europe
+X-Plane :: Region :: Northern Europe
+X-Plane :: Region :: Southern Europe
+X-Plane :: Region :: Western Europe
+X-Plane :: Region :: Australia and New Zealand
+X-Plane :: Region :: Melanesia
+X-Plane :: Region :: Micronesia
+X-Plane :: Region :: Polynesia
+
+
+
+
+
+X-Plane :: Navdata :: SIDs and STARs
+X-Plane :: Navdata :: AIRAC Data :: %{Aircraft}s
+X-Plane :: Navdata :: Navigation Data (APT-NAV-DAT)
+X-Plane :: Navdata :: Flightplans
 Development Status :: 1 - Planning
 Development Status :: 2 - Pre-Alpha
 Development Status :: 3 - Alpha
@@ -5,8 +65,6 @@ Development Status :: 4 - Beta
 Development Status :: 5 - Production/Stable
 Development Status :: 6 - Mature
 Development Status :: 7 - Inactive
-X-Plane :: Addons :: Plugins
-X-Plane :: Controllers :: Joystick
 Operating System :: MacOS
 Operating System :: MacOS :: MacOS X
 Operating System :: Microsoft
