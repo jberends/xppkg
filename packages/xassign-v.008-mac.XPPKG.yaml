@@ -1,0 +1,26 @@
+Metadata-Version: 1.0
+Package: xassign
+Version: v.008-mac
+Architecture: Mac
+Author: barbarossa
+Author_Email:
+Depends: X-Plane>=9
+Short_Description:
+  Save your axis and button and even field of view assignments per aircraft.
+  Have as much as 3 sets of settings per aircraft if you wish and access each with just one button or key press.
+Description:
+  I found myself reassigning buttons and axes once too often, so here is a solution.
+  You can save and load 3 sets of assignments (buttons and axes and field of view) PER aircraft.
+  NOTE axes change get recognized by X-Plane only if you visit the "Settings/Joystick/Axis" menu.
+  You can bind keys or buttons to barbarossa/xassign/... to load (or initial save) the sets.
+  If a set is not existent and you try to load it, it gets created instead and you can load it from now on.
+Section: plugins
+Categories: [
+  'X-Plane :: Plugin',
+  'X-Plane :: Controllers :: Joystick',
+  'Operating System :: MacOS :: MacOS X',
+  'X-Plane :: Version 9 and 10'
+ ]
+Download_URL: http://forums.x-plane.org/index.php?app=downloads&module=display&section=download&do=do_download&id=92932
+Package_URL: http://forums.x-plane.org/index.php?app=downloads&showfile=12551
+Home_page: None
