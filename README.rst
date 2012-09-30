@@ -2,6 +2,10 @@
 XPpkg - Hassle free X-Plane package management
 ==============================================
 
+Status
+======
+This project is in "Development Status :: 2 - Pre-Alpha".
+
 
 Main Philisophy
 ===============
