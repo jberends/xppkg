@@ -1,29 +1,27 @@
+X-Plane :: Version 10
+X-Plane :: Version 9
+X-Plane :: Version 9 and 10
 X-Plane :: Plugin
 X-Plane :: Controllers :: Joystick
-X-Plane :: Controllers :: Full Cockpit
+X-Plane :: Controllers :: Cockpit
 X-Plane :: Aircraft
 X-Plane :: Aircraft :: Civilian Fixed-Wing Aircraft
-X-Plane :: Aircraft :: Civilian Fixed-Wing Aircraft :: %{ICAO_CODE}s
 X-Plane :: Aircraft :: Civilian Fixed-Wing Airliner
-X-Plane :: Aircraft :: Civilian Fixed-Wing Airliner :: %{ICAO_CODE}s
 X-Plane :: Aircraft :: Civilian Fixed-Wing General Aviation
-X-Plane :: Aircraft :: Civilian Fixed-Wing General Aviation :: %{ICAO_CODE}s
 X-Plane :: Aircraft :: Gliders (all times)
-X-Plane :: Aircraft :: Gliders (all times)  :: %{ICAO_CODE}s
 X-Plane :: Aircraft :: Helicopters and Rotorcraft
-X-Plane :: Aircraft :: Helicopters and Rotorcraft :: %{ICAO_CODE}s
 X-Plane :: Aircraft :: Military Fixed-Wing
-X-Plane :: Aircraft :: Military Fixed-Wing :: %{ICAO_CODE}s
 X-Plane :: Aircraft :: Spacecraft and Mars
 X-Plane :: Aircraft :: Custom Designs
 X-Plane :: Aircraft :: Radio Controlled Aircraft
-X-Plane :: Aircraft :: Liveries
-X-Plane :: Aircraft :: Liveries :: %{Aircraft}
+X-Plane :: Aircraft :: Livery
+X-Plane :: Aircraft :: Livery :: %{Aircraft}
+X-Plane :: Aircraft :: %{AIRCRAFT_ICAO_CODE}s
 X-Plane :: Scenery
 X-Plane :: Scenery :: Objects
 X-Plane :: Scenery :: Textures
-X-Plane :: Scenery :: Scenery Packages Environment (ENV)
-X-Plane :: Scenery :: Scenery Packages (DSF)
+X-Plane :: Scenery :: Scenery Package Environment (ENV)
+X-Plane :: Scenery :: Scenery Package (DSF)
 X-Plane :: Region :: %{ICAO_LOCATION}s
 X-Plane :: Region :: %{COUNTRY_CODE_ISO3166}s
 X-Plane :: Region :: Eastern Africa
@@ -49,11 +47,6 @@ X-Plane :: Region :: Australia and New Zealand
 X-Plane :: Region :: Melanesia
 X-Plane :: Region :: Micronesia
 X-Plane :: Region :: Polynesia
-
-
-
-
-
 X-Plane :: Navdata :: SIDs and STARs
 X-Plane :: Navdata :: AIRAC Data :: %{Aircraft}s
 X-Plane :: Navdata :: Navigation Data (APT-NAV-DAT)
