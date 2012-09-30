@@ -15,13 +15,18 @@ X-Plane :: Aircraft :: Spacecraft and Mars
 X-Plane :: Aircraft :: Custom Designs
 X-Plane :: Aircraft :: Radio Controlled Aircraft
 X-Plane :: Aircraft :: Livery
-X-Plane :: Aircraft :: Livery :: %{Aircraft}
+# for %{Aircraft} use package name of aircraft the livery belongs to
+X-Plane :: Aircraft :: Livery :: %{Aircraft}s
+# for %{AIRLINE_ICAO_CODE}s use the IACA Airline code from: http://en.wikipedia.org/wiki/Airline_codes-All
+X-Plane :: Aircraft :: Airline :: %{AIRLINE_ICAO_CODE}s
+# for %{AIRCRAFT_ICAO_CODE}s use http://en.wikipedia.org/wiki/List_of_ICAO_aircraft_type_designators
 X-Plane :: Aircraft :: %{AIRCRAFT_ICAO_CODE}s
 X-Plane :: Scenery
 X-Plane :: Scenery :: Objects
 X-Plane :: Scenery :: Textures
 X-Plane :: Scenery :: Scenery Package Environment (ENV)
 X-Plane :: Scenery :: Scenery Package (DSF)
+# for %{ICAO_LOCATION}s use http://en.wikipedia.org/wiki/ICAO_airport_code
 X-Plane :: Region :: %{ICAO_LOCATION}s
 X-Plane :: Region :: %{COUNTRY_CODE_ISO3166}s
 X-Plane :: Region :: Eastern Africa
@@ -71,6 +76,7 @@ Intended Audience :: Developers
 Intended Audience :: End Users/Desktop
 License :: Freeware
 License :: Public Domain
+License :: Other Free with restrictions
 License :: Other/Proprietary License
 License :: OSI Approved
 License :: OSI Approved :: Academic Free License (AFL)

@@ -1,0 +1,39 @@
+Metadata-Version: 1.0
+Package: x737-klm-90-years
+Version: v1
+Architecture: [Win,Mac,Lin]
+Author: European Aircraft Developer Team, EADT
+Author_Email: liveries@eadt.eu
+Depends: X-Plane>=9, x737>=v4
+Description:
+  This livery (KLM 90 Years) is provided as add-on for the x737project aircraft.
+
+  The copyright for this livery is owned by the author(s), Bert van Rijn. Many thanks to Bert van Rijn for
+  contributing the KLM 90 Years livery to our project.
+
+  All rights on the x737 aircraft is owned by the x737project, Benedikt Stratmann and Pierre Stone, EADT.
+  The software is granted as-is. It is not permitted to upload any parts of the x737 aircraft and
+  the liveries provided without permission by the authors. You can modify the software for your
+  own purpose, redistribution is strictly prohibited.
+
+  Liveries generated with the help of the x737 paintkit can be distributed through the web for
+  non-commercial purpose. Distribution through the x737project website is appreciated, please send
+  liveries to liveries@eadt.eu.
+Section: liveries
+Categories: [
+  'Operating System :: MacOS :: MacOS X',
+  'Operating System :: Microsoft :: Windows',
+  'Operating System :: POSIX :: Linux',
+  'X-Plane :: Version 9 and 10',
+  'X-Plane :: Aircraft :: Livery :: x737-v4',
+  'X-Plane :: Aircraft :: Airline :: KLM',
+  'X-Plane :: Aircraft :: Civilian Fixed-Wing Airliner',
+  'X-Plane :: Aircraft :: B738',
+  'X-Plane :: Aircraft :: B737',
+  'X-Plane :: Aircraft :: B739',
+  'License :: Other/Proprietary License'
+ ]
+Download_URL: http://downloads.eadt.eu/x737_v4/liveries/klm_90_years.zip
+Package_URL:
+Home_page: http://www.eadt.eu
+License: Copyright Bert van Rijn, no redististribution without permission by EADT

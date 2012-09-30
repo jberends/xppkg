@@ -1,0 +1,26 @@
+Metadata-Version: 1.0
+Package: x737
+Version: 4.7
+Architecture: [Win,Mac,Lin]
+Author: European Aircraft Developer Team, EADT
+Author_Email: info@eadt.eu
+Depends: X-Plane>=9
+Description:
+   This is the latest release (version 4.7, August 4th 2012) of the Boeing 737NG aircraft simulation by the x737project. This release brings your experience with a 737NG simulation to a new level of realism. An super detailed exterior level of detail, along with an unparalleled plugin-based 737NG simulation of important aircraft systems - especially the AFDS (automatic flight director system) and a number of available add-ons, flight planning tools and finally more than 100 liveries from all over the world are waiting for your input. Never before we have made a release of this weight, you can fill you harddisk with more than 1.0GB of x737 stuff! Again, this a good x737project tradition, the x737project team is providing the whole stuff for free.
+   We strongly recommend to get the latest version of the x737FMC/UFMC add-on which is available from Javier Cortes x737FMC/UFMC website. This brings the ultimate experience for all who want a maximum of realism. The coming up x737FMC/UFMC version 2.7 and x737 version 4.7 are tuned to work together perfectly! Please refer to the x737FMC version update page for more information about the latest release.
+Section: aircraft
+Categories: [
+  'Operating System :: MacOS :: MacOS X',
+  'Operating System :: Microsoft :: Windows',
+  'Operating System :: POSIX :: Linux',
+  'X-Plane :: Version 9 and 10',
+  'X-Plane :: Aircraft :: Civilian Fixed-Wing Airliner',
+  'X-Plane :: Aircraft :: B738',
+  'X-Plane :: Aircraft :: B737',
+  'X-Plane :: Aircraft :: B739',
+  'License :: Other Free with restrictions'
+ ]
+Download_URL: http://downloads.eadt.eu/x737_v4/aircraft/x737_v4_800_BBJ2_base.zip
+Package_URL: http://eadt.eu/index.php?aircraft-for-x-plane-9
+Home_page: http://www.eadt.eu
+License: free, copyright EADT, no redistribution without authorisation

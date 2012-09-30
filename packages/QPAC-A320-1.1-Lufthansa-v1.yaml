@@ -1,0 +1,31 @@
+Metadata-Version: 1.0
+Package: QPAC-A320-1.1-Lufthansa
+Version: v1
+Architecture: [Win,Mac,Lin]
+Author: Marian Günther
+Author_Email: mg.guenther@googlemail.com
+Depends: X-Plane>=9, QPAC-A320>=1.1
+Description:
+  The liveries is for the QPAC A320 with full FBW (Version 1.1).
+  You can find that plane here www.qpac.de/index1d9d.html?id=79&lang=en
+
+  The livery was created with the paint kit by "WombatBoy".
+  You can find the paint kit here forums.x-plane.org/index.php?app=downloads&showfile=17050
+  The real plane is an Airbus A320-211, you can find a picture here www.airliners.net/photo/Lufthansa/Airbus-A320-211/1882137/
+Section: liveries
+Categories: [
+  'Operating System :: MacOS :: MacOS X',
+  'Operating System :: Microsoft :: Windows',
+  'Operating System :: POSIX :: Linux',
+  'X-Plane :: Version 9 and 10',
+  'X-Plane :: Aircraft :: Livery :: QPAC-A320',
+  'X-Plane :: Aircraft :: Airline :: DLH',
+  'X-Plane :: Aircraft :: Civilian Fixed-Wing Airliner',
+  'X-Plane :: Aircraft :: B738',
+  'X-Plane :: Aircraft :: B737',
+  'X-Plane :: Aircraft :: B739',
+ ]
+Download_URL:
+Package_URL:
+Home_page:
+License:
