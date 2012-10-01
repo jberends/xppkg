@@ -6,8 +6,6 @@ Status
 ======
 .. image:: https://secure.travis-ci.org/jberends/xppkg.png
 
-!https://secure.travis-ci.org/jberends/xppkg.png(Build Status)!:http://travis-ci.org/jberends/xppkg
-
 This project is in "Development Status :: 2 - Pre-Alpha".
 
 

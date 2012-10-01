@@ -7,6 +7,7 @@ contrib/transform_categories.py
 contrib/xplane.org-categories.txt
 contrib/xplane.org-categories.yaml
 tests/__init__.py
+tests/test_install_opensceneryx.py
 tests/test_sdist.py
 xppkg/__init__.py
 xppkg/backwardcompat.py
@@ -15,4 +16,3 @@ xppkg/log.py
 xppkg/settings.py
 xppkg/snapshot.py
 xppkg/util.py
-xppkg/xp_location.py

@@ -2,5 +2,7 @@ include *.md *.txt *.rst *.yaml
 graft contrib
 graft tests
 exclude .gitignore
+prune packages
+prune tests/test-packages
 recursive-include docs *.md *.txt *.htm *.pdf *.yaml
 global-exclude *.pyc
