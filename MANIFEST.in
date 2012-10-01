@@ -1,6 +1,6 @@
 include *.md *.txt *.rst *.yaml
 graft contrib
 graft tests
-excluse .gitignore
+exclude .gitignore
 recursive-include docs *.md *.txt *.htm *.pdf *.yaml
 global-exclude *.pyc
