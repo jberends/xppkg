@@ -4,7 +4,8 @@ XPpkg - Hassle free X-Plane package management
 
 Status
 ======
-.. image:: https://secure.travis-ci.org/jberends/xppkg.png <http://travis-ci.org/jberends/xppkg>
+.. image:: https://secure.travis-ci.org/jberends/xppkg.png
+    <http://travis-ci.org/jberends/xppkg>
 
 This project is in "Development Status :: 2 - Pre-Alpha".
 
