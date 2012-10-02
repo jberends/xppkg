@@ -6,13 +6,17 @@ from xppkg import util
 
 class TestDistribution(unittest.TestCase):
     DIST_DIR = 'dist'
+    DIST_DIR_BACKUP = '%s_backup' % DIST_DIR
     def setUp(self):
         self.cwd = os.getcwd()
         # if we can find the dist dir, remove it
         self.dist_dir = os.path.join(self.cwd, self.DIST_DIR)
+        self.dist_dir_backup = os.path.join(self.cwd, self.DIST_DIR_BACKUP)
 
         if os.path.isdir(self.dist_dir):
-            shutil.rmtree(self.dist_dir)
+            #shutil.rmtree(self.dist_dir)
+            # move the dist out of the way, to move it back in the teardown process
+            shutil.move(self.dist_dir, self.dist_dir_backup)
 
 
     def test_sdist(self):
@@ -29,6 +33,11 @@ class TestDistribution(unittest.TestCase):
         self.assertTrue(os.path.isdir(self.dist_dir))
         filenames = os.listdir(self.dist_dir)
         self.assertGreaterEqual(len(filenames),1)
+
+    def tearDown(self):
+        if os.path.isdir(self.dist_dir_backup) and os.path.isdir (self.dist_dir):
+            shutil.rmtree(self.dist_dir)
+            shutil.move(self.dist_dir_backup, self.dist_dir)
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
