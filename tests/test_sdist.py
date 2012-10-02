@@ -14,7 +14,6 @@ class TestDistribution(unittest.TestCase):
         self.dist_dir_backup = os.path.join(self.cwd, self.DIST_DIR_BACKUP)
 
         if os.path.isdir(self.dist_dir):
-            #shutil.rmtree(self.dist_dir)
             # move the dist out of the way, to move it back in the teardown process
             shutil.move(self.dist_dir, self.dist_dir_backup)
 
@@ -27,7 +26,6 @@ class TestDistribution(unittest.TestCase):
         # test if python setup.py dist return 0
 
         returned_output = util.call_subprocess([sys.executable, 'setup.py','sdist'])
-        #returned_output = subprocess.call([sys.executable, 'setup.py','sdist'])
         #self.assertEqual(returned_output,0)
         self.assertIsNone(returned_output)
         self.assertTrue(os.path.isdir(self.dist_dir))
