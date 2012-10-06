@@ -9,18 +9,22 @@ Status
 
 This project is in "Development Status :: 2 - Pre-Alpha".
 
+Support the Developer: Answer some Questions
+============================================
 
-Main Philisophy
-===============
+To get a good understanding what you want please take 2 minutes to answer a couple of questions on the use
+http://bit.ly/XPPKGQ1
 
-This document desribes the main philisophy why xppkg was created.
 
 Main Pain
 =========
 
 Installation of Scenery, Aircraft, NavData, Plugins are a pain. The sim-community is flooded with good (and bad)
-quality resources, and arranging and browsing all sites to find your own golden installation is always a pain.
-After returning to X-plane from the FS world after a few years, nothing changed.
+quality add-ons and extentions. Finding them, arranging them and browsing all sites to find your
+own golden flightsimulator 'installation' is always a pain.
+
+After returning to X-plane after a few years (coming from the MS-FS world), nothing that much changed.
+For that reason it is aimed to create XPpkg:
 
   * XPpkg is a hassle-free X-Plane package installer, much alike pip in python:
     to download, install and upgrade various X-Plane packages from various internet sources.
