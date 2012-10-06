@@ -4,7 +4,7 @@ __home_page__ = 'https://github.com/jberends/xppkg'
 QUESTIONNAIRE_URL = 'http://bit.ly/XPPKGQ1'
 
 # This version is used by the setup.py
-__version__ = '0.3dev.0'
+__version__ = '0.3dev.1'
 
 import sys
 import os, platform
