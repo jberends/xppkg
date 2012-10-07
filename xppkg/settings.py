@@ -34,7 +34,8 @@ XSYSTEM_VERSION = ''
 
 
 XPPKG_INF_FILENAME = 'XPPKG-INF.yaml'
-XPPKG_REPOS_URL = 'https://raw.github.com/jberends/xppkg/master/packages/'
+XPPKG_REPOS_URL = 'https://raw.github.com/jberends/xppkg/master/packages'
+XPPKG_POOL_URL = '%s/pool' % XPPKG_REPOS_URL
 
 # Ignored file patterns in the snap
 SNAP_IGNORED_PATTERNS = ['.DS_Store','*.svn*', '*.git*', '*.png','*.gif' ]
@@ -45,18 +46,19 @@ if DEBUG:
 """
 Bootstraps by discovering the XSYSTEM_PATH and XSYSTEM_VERSION
 """
-# set XSYSTEM_PATH this is a happy path, no searching
-if os.path.exists(XSYSTEM_LOCATION_HELPERS[SYSTEM]) and\
-   os.path.isfile(os.path.join(XSYSTEM_LOCATION_HELPERS[SYSTEM],
-       XPLANE_EXECUTABLE[SYSTEM])):
-    XSYSTEM_PATH = os.path.dirname(XSYSTEM_LOCATION_HELPERS[SYSTEM])
-else:
-    raise exceptions.SimulatorNotInstalledError,\
-    ('Cannot find X-Plane installation at %s' % XSYSTEM_LOCATION_HELPERS[SYSTEM])
-
-# set XSYSTEM_VERSION
-get_version_cmd = [os.path.join(XSYSTEM_PATH, XPLANE_EXECUTABLE[SYSTEM]), '--version']
-XSYSTEM_VERSION = util.call_subprocess(get_version_cmd, show_stdout=False)
+def discover_XPlane():
+    # set XSYSTEM_PATH this is a happy path, no searching
+    global XSYSTEM_PATH, XSYSTEM_VERSION
+    if os.path.exists(XSYSTEM_LOCATION_HELPERS[SYSTEM]) and\
+       os.path.isfile(os.path.join(XSYSTEM_LOCATION_HELPERS[SYSTEM],
+           XPLANE_EXECUTABLE[SYSTEM])):
+        XSYSTEM_PATH = os.path.dirname(XSYSTEM_LOCATION_HELPERS[SYSTEM])
+    else:
+        raise exceptions.SimulatorNotInstalledError,\
+        ('Cannot find X-Plane installation at %s' % XSYSTEM_LOCATION_HELPERS[SYSTEM])
+    # set XSYSTEM_VERSION
+    get_version_cmd = [os.path.join(XSYSTEM_PATH, XPLANE_EXECUTABLE[SYSTEM]), '--version']
+    XSYSTEM_VERSION = util.call_subprocess(get_version_cmd, show_stdout=False)
 
 XPPKG_CATEGORIES_URL = urlparse.urljoin(XPPKG_REPOS_URL,'categories.txt')
 XPPKG_CATEGORIES = urllib.urlopen(XPPKG_CATEGORIES_URL).read().split('\n')

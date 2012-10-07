@@ -7,6 +7,7 @@ import os
 import imp
 import sys
 import site
+import xppkg
 
 __all__ = ['WindowsError']
 
@@ -23,13 +24,12 @@ except NameError:
 console_encoding = sys.__stdout__.encoding
 
 if sys.version_info >= (3,):
-    from io import StringIO, BytesIO
+    from io import StringIO
     from functools import reduce
     from urllib.error import URLError, HTTPError
     from queue import Queue, Empty
     from urllib.request import url2pathname
     from urllib.request import urlretrieve
-    from email import message as emailmessage
     import urllib.parse as urllib
     import urllib.request as urllib2
     import configparser as ConfigParser
@@ -60,16 +60,6 @@ if sys.version_info >= (3,):
     raw_input = input
 else:
     from cStringIO import StringIO
-    from urllib2 import URLError, HTTPError
-    from Queue import Queue, Empty
-    from urllib import url2pathname, urlretrieve
-    from email import Message as emailmessage
-    import urllib
-    import urllib2
-    import urlparse
-    import ConfigParser
-    import xmlrpclib
-    import httplib
 
     def b(s):
         return s
@@ -91,8 +81,6 @@ else:
     BytesIO = StringIO
 
 
-from distutils.sysconfig import get_python_lib, get_python_version
-
 #site.USER_SITE was created in py2.6
 user_site = getattr(site,'USER_SITE',None)
 
@@ -113,3 +101,27 @@ def home_lib(home):
     else:
         lib = os.path.join('lib', 'python')
     return os.path.join(home, lib)
+
+
+def main_during_development():
+    """
+    This is the main start point (entry point) of the script
+    """
+    sys.stdout.write("""
+    Thanks for using XPpkg, the X-Plane hassle free package manager.
+
+    Please remember that this is only version: %s.
+    So go check out %s
+    on which contributions are always welcome!
+
+    While the work is done on the functionality you will be directed
+    to a small questionnaire... too understand what you want.
+
+    Regards,
+    %s
+    """ % (xppkg.__version__, xppkg.__home_page__, xppkg.__author__))
+    try:
+        xppkg.launch_link(xppkg.QUESTIONNAIRE_URL)
+    except:
+        pass #silently
+    pass

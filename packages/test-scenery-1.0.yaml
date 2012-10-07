@@ -6,7 +6,7 @@ Author: Jochem Berends
 Author_Email: jberends+xppkg@jbits.nl
 Depends: X-Plane>=9
 Description:
-   This is a test scenert package. It will download and install into your X-System/Custom Scenery folder
+   This is a test scenery package. It will download and install into your X-System/Custom Scenery folder
 Section: scenery
 Categories: [
   'Operating System :: MacOS :: MacOS X',
