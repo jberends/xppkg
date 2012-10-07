@@ -28,7 +28,7 @@ def unpack_http_url(link, location, download_cache=None, download_dir=None):
     downloads and unpacks a archive to a directory
 
     link is a  index.Link object (with an url)
-    location is ...
+    location is dir where to move files to
     download_cache is the dir where the download cache is stored
     download_dir is optional a dir where the download is first stored
     """

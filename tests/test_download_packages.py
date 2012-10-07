@@ -17,8 +17,6 @@ _tempo_test_dir = os.path.join(_cwd, '_testing')
 def setup_func():
     """set up test fixtures"""
     if os.path.isdir(_tempo_test_dir):
-        if os.path.isdir(util.backup_dir(_tempo_test_dir)):
-            os.removedirs(util.backup_dir(_tempo_test_dir))
         os.rename(_tempo_test_dir, util.backup_dir(_tempo_test_dir))
 
 def teardown_func():
@@ -43,9 +41,9 @@ def test_download_scenery():
     """
     download_url = _test_scenery_url
     download_link = Link(download_url)
-    location = os.path.join(_tempo_test_dir,'Scenery','Test Scenery')
+    install_location = os.path.join(_tempo_test_dir,'Scenery','Test Scenery')
 
-    unpack_http_url(download_link, location, download_cache=None, download_dir=None)
+    unpack_http_url(download_link, install_location, download_cache=None, download_dir=None)
 
 
 
