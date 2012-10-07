@@ -1,0 +1,24 @@
+Metadata-Version: 1.0
+Package: test-scenery
+Version: 1.0
+Architecture: [Win,Mac,Lin]
+Author: Jochem Berends
+Author_Email: jberends+xppkg@jbits.nl
+Depends: X-Plane>=9
+Description:
+   This is a test scenert package. It will download and install into your X-System/Custom Scenery folder
+Section: scenery
+Categories: [
+  'Operating System :: MacOS :: MacOS X',
+  'Operating System :: Microsoft :: Windows',
+  'Operating System :: POSIX :: Linux',
+  'X-Plane :: Version 9 and 10',
+  'X-Plane :: Scenery :: Scenery Package (DSF)',
+  'X-Plane :: Region :: Western Europe',
+  'X-Plane :: Region :: EHAM',
+  'License :: Creative Commons :: Attribution-NonCommercial-ShareAlike (CC BY-NC-SA) :: 3.0 Unported'
+ ]
+Download_URL: https://raw.github.com/jberends/xppkg/master/packages/pool/test-scenery-1.0.zip
+Package_URL: https://raw.github.com/jberends/xppkg/master/packages/
+Home_page: https://github.com/jberends/xppkg
+License: Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA) 3.0 Unported
