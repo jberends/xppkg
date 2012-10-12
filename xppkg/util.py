@@ -17,7 +17,6 @@ import hashlib
 #######
 # pip utils
 #######
-from xppkg.exceptions import InstallationError
 
 def call_subprocess(cmd,
                     show_stdout=True,
@@ -232,7 +231,7 @@ def unpack_file(filename, location, content_type, link):
         ## FIXME: magic signatures?
         logger.fatal('Cannot unpack file %s (downloaded from %s, content-type: %s); cannot detect archive format'
                      % (filename, location, content_type))
-        raise InstallationError('Cannot determine archive format of %s' % location)
+        raise exceptions.InstallationError('Cannot determine archive format of %s' % location)
 
 def unzip_file(filename, location, flatten=True):
     """Unzip the file (zip file located at filename) to the destination

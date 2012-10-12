@@ -1,5 +1,5 @@
-from xppkg.backwardcompat import main_during_development
-from xppkg.util import launch_link
+from backwardcompat import main_during_development
+from util import launch_link
 import sys
 
 __author__ = 'Jochem Berends <jberends+xppkg@jbits.nl>'

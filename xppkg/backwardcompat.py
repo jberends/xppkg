@@ -7,7 +7,7 @@ import os
 import imp
 import sys
 import site
-import xppkg
+
 
 __all__ = ['WindowsError']
 
@@ -104,6 +104,7 @@ def home_lib(home):
 
 
 def main_during_development():
+    from __init__ import __version__, __home_page__, __author__, launch_link, QUESTIONNAIRE_URL
     """
     This is the main start point (entry point) of the script
     """
@@ -119,9 +120,9 @@ def main_during_development():
 
     Regards,
     %s
-    """ % (xppkg.__version__, xppkg.__home_page__, xppkg.__author__))
+    """ % (__version__, __home_page__, __author__))
     try:
-        xppkg.launch_link(xppkg.QUESTIONNAIRE_URL)
+        launch_link(QUESTIONNAIRE_URL)
     except:
         pass #silently
     pass
