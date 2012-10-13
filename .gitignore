@@ -1,6 +1,6 @@
 # directories #
 dist
-tests/test-packages
+tests/test-packages/xppkg*
 _*
 
 # Compiled source #
