@@ -4,8 +4,10 @@ from __init__ import __version__
 __author__ = 'jochem'
 
 __doc__ ="""
+XPpkg - the hassle free X-Plane package installer
+
 Usage:
-    xppkg install <package-name> [-v]
+    xppkg install (<package-name>|<url>) [-v]
     xppkg check <file> [-v]
     xppkg uninstall <package-name> [-v]
 

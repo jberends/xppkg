@@ -1,8 +1,8 @@
 # nosetest
 # source: https://nose.readthedocs.org/en/latest/writing_tests.html
 import os
+import shutil
 from nose import with_setup
-from xppkg import util
 from xppkg.index import Link
 from xppkg.download import unpack_http_url
 
@@ -13,11 +13,14 @@ _test_scenery_url = 'https://github.com/jberends/xppkg/blob/master/packages/pool
 _pool_url = XPPKG_POOL_URL
 _cwd = os.getcwd()
 _tempo_test_dir = os.path.join(_cwd, '_testing')
+_tempo_test_dir_depr = '%s-depr' % _tempo_test_dir
 
 def setup_func():
     """set up test fixtures"""
+    if os.path.isdir(_tempo_test_dir_depr):
+        shutil.rmtree(_tempo_test_dir_depr)
     if os.path.isdir(_tempo_test_dir):
-        os.rename(_tempo_test_dir, util.backup_dir(_tempo_test_dir))
+        os.rename(_tempo_test_dir, _tempo_test_dir_depr)
 
 def teardown_func():
     """tear down test fixtures"""
