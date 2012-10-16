@@ -1,9 +1,9 @@
 Metadata-Version: 1.0
 Package: test-scenery
 Version: 1.0
-Architecture: [Win,Mac,Lin]
+Architecture: [Win,Mac,Linux]
 Author: Jochem Berends
-Author_Email: jberends+xppkg@jbits.nl
+Author_Email: Jochem Berends <jberends+xppkg@jbits.nl>
 Depends: X-Plane>=9
 Description:
    This is a test scenery package. It will download and install into your X-System/Custom Scenery folder

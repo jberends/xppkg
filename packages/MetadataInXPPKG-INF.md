@@ -15,10 +15,11 @@ The PIP314 [http://www.python.org/dev/peps/pep-0314/] is used for main inspirati
     Package -- the package name
     Version -- the package version (according to http://epydoc.sourceforge.net/stdlib/distutils.version-module.html)
     Architecture -- architecture the package is for
-        win,mac,linux
-    Author -- contact email of package maker
+        Win,Mac,Linux
+    Author -- contact name of package maker (required with Author-Email)
+    Author-Email -- contact email of the package maker (required with Author)
     Depends -- declares an absolute dependency
-        X-Plane > 10 (X-plane is in this sense a virtual package)
+        X-Plane>10 (X-plane is in this sense a virtual package)
     Recommends -- declares a strong but not absolute dependency
     Suggests -- recommends other packages to install
     Pre-Depends -- declares an installation dependency
@@ -27,16 +28,17 @@ The PIP314 [http://www.python.org/dev/peps/pep-0314/] is used for main inspirati
     Provides -- declares `virtual' packages for dependency purposes
     Description -- multiline description of package.
     Section -- application area of the package
-        aircraft
-        livery
-        scenery
-        plugin
-        navdata
+        Aircraft
+        Livery
+        Scenery
+        Plugin
+        Navdata
     Installed-Size -- installed size of the package (optional, calculated)
     Date -- last-modified-date of metadata
     Changes -- human-readable changelog data (optional)
     Size -- size of binary package (optional, calculated)
     MD5sum -- MD5 checksum of the package (optional, calculated)
+    License -- The license statement for the package
 
     [source: PyPi additional key:value for installation]
     ReleaseURL -- The URL where to obtain the original ZIP package.
@@ -52,10 +54,12 @@ The PIP314 [http://www.python.org/dev/peps/pep-0314/] is used for main inspirati
 ### Name (required)
 
   The name of the package. This name is unique in the world of packages for X-Plane and is case sensitive
+  It is a 'slug' meaning should contain lowercase characters and can only include a 'minus' or 'hyphen'
 
   Example:
 
       Name: Columbia400
+      Name: Boeing-747
 
 ### Version (required)
 
@@ -69,26 +73,13 @@ The PIP314 [http://www.python.org/dev/peps/pep-0314/] is used for main inspirati
 
 ### Platform (multiple use)
 
-  A comma-separated list of platform specifications, summarizing
-  the operating systems supported by the package which are not
-  listed in the "Operating System" Trove classifiers. See
-  "Classifier" below.
+  A comma-separated list of platform specifications, options can be 'Win', 'Mac' or 'Linux'
 
   Example:
 
-      Platform: ObscureUnix, RareDOS
-
-### Supported-Platform (multiple use)
-
-  Binary distributions containing a PKG-INFO file will use the
-  Supported-Platform field in their metadata to specify the OS and
-  CPU for which the binary package was compiled.  The semantics of
-  the Supported-Platform field are not specified in this PEP.
-
-  Example:
-
-      Supported-Platform: RedHat 7.2
-      Supported-Platform: i386-win32-2791
+      Platform: Mac
+      Platform: Win
+      Platform: [Mac, Win, Linux]
 
 ### Summary
 
@@ -118,14 +109,6 @@ The PIP314 [http://www.python.org/dev/peps/pep-0314/] is used for main inspirati
                    Do *not* try to use this module with basset hounds;
                    it makes them grumpy.
 
-### Keywords (optional)
-
-  A list of additional keywords to be used to assist searching
-  for the package in a larger catalog.
-
-  Example:
-
-      Keywords: dog puppy voting election
 
 ### Home-page (optional)
 
@@ -141,17 +124,16 @@ The PIP314 [http://www.python.org/dev/peps/pep-0314/] is used for main inspirati
   can be downloaded.  (This means that the URL can't be something like
   ".../package-latest.tgz", but instead must be "../package-0.45.tgz".)
 
-### Author (optional)
+### Author (optional, required with Author-Email)
 
   A string containing the author's name at a minimum; additional
   contact information may be provided.
 
   Example:
 
-      Author: C. Schultz, Universal Features Syndicate,
-              Los Angeles, CA <cschultz@peanuts.example.com>
+      Author: Jochem Berends
 
-### Author-email
+### Author-Email (optional, required with Author)
 
   A string containing the author's e-mail address.  It can contain
   a name and e-mail address in the legal forms for a RFC-822
@@ -161,12 +143,12 @@ The PIP314 [http://www.python.org/dev/peps/pep-0314/] is used for main inspirati
   ability to store their GPG key, personal home page, and other
   additional metadata *about the author*, and optionally the
   ability to associate several e-mail addresses with the same
-  person.  Author-related metadata fields are not covered by this
-  PEP.
+  person.
 
   Example:
 
-      Author-email: "C. Schultz" <cschultz@example.com>
+      Author-email: jberends+xppkg@jbits.nl
+      Author-email: Jochem Berends <jberends+xppkg@jbits.nl>
 
 ### License
 

@@ -1,7 +1,7 @@
 Metadata-Version: 1.0
 Package: test-aircraft
 Version: 1.0
-Architecture: [Win,Mac,Lin]
+Architecture: [Win,Mac,Linux]
 Author: Jochem Berends
 Author_Email: jberends+xppkg@jbits.nl
 Depends: X-Plane>=9
@@ -16,7 +16,7 @@ Categories: [
   'X-Plane :: Aircraft :: Civilian Fixed-Wing Airliner',
   'License :: Creative Commons :: Attribution-NonCommercial-ShareAlike (CC BY-NC-SA) :: 3.0 Unported'
  ]
-Download_URL: https://raw.github.com/jberends/xppkg/master/packages/pool/test-aircraft-1.0.zip
-Package_URL: https://raw.github.com/jberends/xppkg/master/packages/
-Home_page: https://github.com/jberends/xppkg
+Download_Url: https://raw.github.com/jberends/xppkg/master/packages/pool/test-aircraft-1.0.zip
+Package_Url: https://raw.github.com/jberends/xppkg/master/packages/
+Home_Page: https://github.com/jberends/xppkg
 License: Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA) 3.0 Unported

@@ -31,3 +31,6 @@ class BadCommand(XPpkgError):
 
 class CommandError(XPpkgError):
     """Raised when there is an error in command-line arguments"""
+
+class MetaDataError(XPpkgError):
+    """Raised when the Metadata is erroneous and not aligned with the standard"""
