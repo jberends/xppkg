@@ -110,14 +110,15 @@ def check_metadata(metadata):
             raise MetaDataError, "Author's Email is not a string '%s'" % metadata['Author']
         author_email = metadata['Author-Email']
         # check against RFC822 using email.utils.parseaddr
-        _, his_email = email.utils.parseaddr(author_email)
-        if not re.match(METADATA_EMAIL_REGEX, his_email):
+        _, the_email = email.utils.parseaddr(author_email)
+        if not re.match(METADATA_EMAIL_REGEX, the_email):
             raise MetaDataError, "Author's email '%s' seems not to be a correct formatted email address (%s)"\
-                                 % (his_email, metadata['Author-Email'])
+                                 % (the_email, metadata['Author-Email'])
 
 
 def _normalise_metadatakeys(dict_in):
-    """Normalises the keys in a dict_in to become lower case and without whitespaces, whitespace is replaced with _"""
+    """Normalises the keys in a dict_in to become lower case and 
+    without whitespaces, whitespace is replaced with _"""
     new_dict = {}
     for key in dict_in.keys():
         new_key = key.strip().title().replace('_','-').replace(' ','-')
