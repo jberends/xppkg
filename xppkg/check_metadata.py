@@ -50,15 +50,13 @@ def check_metadata(metadata):
     # check if keys are 'known keys'
     metadata = _normalise_metadatakeys(metadata)
     for key in metadata.keys():
-        try:
-            assert key in METADATA_KEYS
-        except AssertionError:
+        if key not in METADATA_KEYS:
             raise MetaDataError, "Key '%s' not known in the list of allowed keys in the Metadata" % key
 
     # check if the meta-data has at least the required keys
     for required_key in METADATA_KEYS_REQUIRED:
         if required_key not in metadata.keys():
-            raise MetaDataError, "Could not find key '%s' in the package metadata \n%r" \
+            raise MetaDataError, "Could not find key '%s' in the package metadata, found: %r" \
                                  % (required_key, metadata.keys())
 
     #TODO: refactor out of the checker function, into the cleaner function of the MetaData object
@@ -114,6 +112,9 @@ def check_metadata(metadata):
         if not re.match(METADATA_EMAIL_REGEX, the_email):
             raise MetaDataError, "Author's email '%s' seems not to be a correct formatted email address (%s)"\
                                  % (the_email, metadata['Author-Email'])
+
+    # returns the 'cleaned' metadata
+    return metadata
 
 
 def _normalise_metadatakeys(dict_in):
