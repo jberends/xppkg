@@ -38,6 +38,11 @@ class TestMetaDataContents(unittest.TestCase):
         self._metadata_base['Author'] = 'An Author'
         self.assertRaises(MetaDataError, check_metadata, self._metadata_base)
 
+        md = self._metadata_base
+        md['Author'] = 1.0
+        md['Author-Email'] = 'asd@asd.as'
+        self.assertRaisesRegexp(MetaDataError, r'^Author is not a string.*', check_metadata, md)
+
     def test_metadata_authoremail(self):
         """
         Tests the various email forms and Author
