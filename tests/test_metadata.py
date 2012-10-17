@@ -11,7 +11,6 @@ _metadata_scenery_filename = os.path.join(os.path.dirname(__file__), 'test-packa
 
 
 class TestMetadataFiles(unittest.TestCase):
-
     def test_metadata_aircraft(self):
         """
         Test the metadata of a aircraft
@@ -30,8 +29,8 @@ class TestMetadataFiles(unittest.TestCase):
         pprint(metadata)
         assert check_metadata(metadata)
 
-class TestMetaDataContents(unittest.TestCase):
 
+class TestMetaDataContents(unittest.TestCase):
     def setUp(self):
         self._metadata_base = {'Package': 'Test-package', 'Version': '1.0', 'Metadata-Version': '1.0'}
 
@@ -47,12 +46,12 @@ class TestMetaDataContents(unittest.TestCase):
         md['Author'] = 'An Author'
         md['Author-Email'] = 'An Author <anemail-address@somedomain.com.uk>'
         self.assertIsNotNone(check_metadata(md))
-        
+
         md['Author-Email'] = 'some@email.addr'
         self.assertIsNotNone(check_metadata(md))
 
         md['Author-Email'] = 'some.email.without.at.sign.com'
-        self.assertRaisesRegexp(MetaDataError,r'^Author.*email.*', check_metadata, md)
+        self.assertRaisesRegexp(MetaDataError, r'^Author.*email.*', check_metadata, md)
 
     def test_sections(self):
         """
@@ -61,13 +60,13 @@ class TestMetaDataContents(unittest.TestCase):
         md = self._metadata_base
 
         # happy path
-        for section in ['Aircraft','Scenery','Plugin','Livery','Navdata']:
+        for section in ['Aircraft', 'Scenery', 'Plugin', 'Livery', 'Navdata']:
             md['Section'] = section
             self.assertIsNotNone(check_metadata(md))
 
         # unhappy
         md['Section'] = 'Foobar'
-        self.assertRaisesRegexp(MetaDataError,r'^The Section.*is not known.*', check_metadata, md)
+        self.assertRaisesRegexp(MetaDataError, r'^The Section.*is not known.*', check_metadata, md)
 
     def test_keywords(self):
         """
@@ -77,9 +76,9 @@ class TestMetaDataContents(unittest.TestCase):
 
         # happy path
         for key in ['Depends', 'Recommends',
-            'Suggests', 'Pre-Depends', 'Conflicts', 'Replaces', 'Provides', 'Description', 'Section',
-            'Installed-Size', 'Date', 'Changes', 'Size', 'Md5sum', 'License', 'Download-Url',
-            'Package-Url','Home-Page', 'Categories']:
+                    'Suggests', 'Pre-Depends', 'Conflicts', 'Replaces', 'Provides', 'Description', 'Section',
+                    'Installed-Size', 'Date', 'Changes', 'Size', 'Md5sum', 'License', 'Download-Url',
+                    'Package-Url', 'Home-Page', 'Categories']:
             md[key] = None
             self.assertIsNotNone(check_metadata(md))
             del md[key]
@@ -105,6 +104,7 @@ class TestMetaDataContents(unittest.TestCase):
             try:
                 check_metadata(md)
             except MetaDataError:
+                #noinspection PyStatementEffect
                 True
 
 if __name__ == '__main__':
