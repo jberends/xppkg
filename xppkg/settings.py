@@ -36,6 +36,7 @@ XSYSTEM_VERSION = ''
 
 XPPKG_INF_FILENAME = 'XPPKG-INF.yaml'
 XPPKG_REPOS_URL = 'https://raw.github.com/jberends/xppkg/master/packages/'
+XPPKG_POOL_URL = '%s/pool' % XPPKG_REPOS_URL
 
 # Ignored file patterns in the snap
 SNAP_IGNORED_PATTERNS = ['.DS_Store','*.svn*', '*.git*', '*.png','*.gif' ]
