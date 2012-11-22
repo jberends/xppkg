@@ -3,7 +3,7 @@ from __init__ import __version__
 
 __author__ = 'jochem'
 
-__doc__ ="""
+__doc__ = """
 XPpkg - the hassle free X-Plane package installer
 
 Usage:
@@ -17,9 +17,8 @@ Options:
     --version       Display version
 """
 
-
-
 if __name__ == '__main__':
     arguments = docopt.docopt(__doc__, help=__doc__, version=__version__)
     from pprint import pprint
+
     pprint(arguments)

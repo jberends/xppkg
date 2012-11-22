@@ -84,6 +84,7 @@ else:
 #site.USER_SITE was created in py2.6
 user_site = getattr(site,'USER_SITE',None)
 
+
 def product(*args, **kwds):
     # product('ABCD', 'xy') --> Ax Ay Bx By Cx Cy Dx Dy
     # product(range(2), repeat=3) --> 000 001 010 011 100 101 110 111
@@ -93,6 +94,7 @@ def product(*args, **kwds):
         result = [x+[y] for x in result for y in pool]
     for prod in result:
         yield tuple(prod)
+
 
 def home_lib(home):
     """Return the lib dir under the 'home' installation scheme"""
@@ -104,10 +106,11 @@ def home_lib(home):
 
 
 def main_during_development():
-    from __init__ import __version__, __home_page__, __author__, launch_link, QUESTIONNAIRE_URL
     """
     This is the main start point (entry point) of the script
     """
+    from __init__ import __version__, __home_page__, __author__, launch_link, QUESTIONNAIRE_URL
+
     sys.stdout.write("""
     Thanks for using XPpkg, the X-Plane hassle free package manager.
 

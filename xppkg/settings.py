@@ -9,20 +9,22 @@ import os
 import urllib
 import urlparse
 import util
-import exceptions
+from xppkg.exceptions import SimulatorNotInstalledError
 
 # For debugging purposes in testing phase
+
+
 DEBUG = True
 
 XSYSTEM_LOCATION_HELPERS={
     'Darwin':'/Applications/X-Plane 10/',
-    'Win':'C:/Program Files/X-Plane 10/',
+    'Windows':'C:/Program Files/X-Plane 10/',
     'Linux':'/opt/X-plane 10'
 }
 
 XPLANE_EXECUTABLE={
     'Darwin': 'X-Plane.app/Contents/MacOS/X-Plane',
-    'Win':'X-plane.exe',
+    'Windows':'X-plane.exe',
     'Linux':'X-plane'
 }
 
@@ -32,10 +34,8 @@ SYSTEM = platform.system()
 XSYSTEM_PATH = ''
 XSYSTEM_VERSION = ''
 
-
 XPPKG_INF_FILENAME = 'XPPKG-INF.yaml'
-XPPKG_REPOS_URL = 'https://raw.github.com/jberends/xppkg/master/packages'
-XPPKG_POOL_URL = '%s/pool' % XPPKG_REPOS_URL
+XPPKG_REPOS_URL = 'https://raw.github.com/jberends/xppkg/master/packages/'
 
 # Ignored file patterns in the snap
 SNAP_IGNORED_PATTERNS = ['.DS_Store','*.svn*', '*.git*', '*.png','*.gif' ]
@@ -54,7 +54,7 @@ def discover_XPlane():
            XPLANE_EXECUTABLE[SYSTEM])):
         XSYSTEM_PATH = os.path.dirname(XSYSTEM_LOCATION_HELPERS[SYSTEM])
     else:
-        raise exceptions.SimulatorNotInstalledError,\
+        raise SimulatorNotInstalledError,\
         ('Cannot find X-Plane installation at %s' % XSYSTEM_LOCATION_HELPERS[SYSTEM])
     # set XSYSTEM_VERSION
     get_version_cmd = [os.path.join(XSYSTEM_PATH, XPLANE_EXECUTABLE[SYSTEM]), '--version']
@@ -64,5 +64,5 @@ XPPKG_CATEGORIES_URL = urlparse.urljoin(XPPKG_REPOS_URL,'categories.txt')
 XPPKG_CATEGORIES = urllib.urlopen(XPPKG_CATEGORIES_URL).read().split('\n')
 
 if __name__ == '__main__':
-    pass
+    discover_XPlane()
 
