@@ -47,6 +47,9 @@ setup(
     long_description=open('README.rst').read(),
 
     test_suite='nose.collector',
+    install_requires=[
+        'requests',
+    ],
     tests_require=tests_require,
     extras_require = {
         'testing':tests_require,

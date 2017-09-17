@@ -7,8 +7,9 @@ It includes logic to finds the X-SYSTEM location depending on your environment, 
 import platform
 import os
 import urllib
-import urlparse
-import util
+from urllib.parse import urljoin
+
+from xppkg import util
 from xppkg.exceptions import SimulatorNotInstalledError
 
 # For debugging purposes in testing phase
@@ -55,13 +56,12 @@ def discover_XPlane():
            XPLANE_EXECUTABLE[SYSTEM])):
         XSYSTEM_PATH = os.path.dirname(XSYSTEM_LOCATION_HELPERS[SYSTEM])
     else:
-        raise SimulatorNotInstalledError,\
-        ('Cannot find X-Plane installation at %s' % XSYSTEM_LOCATION_HELPERS[SYSTEM])
+        raise SimulatorNotInstalledError('Cannot find X-Plane installation at %s' % XSYSTEM_LOCATION_HELPERS[SYSTEM])
     # set XSYSTEM_VERSION
     get_version_cmd = [os.path.join(XSYSTEM_PATH, XPLANE_EXECUTABLE[SYSTEM]), '--version']
     XSYSTEM_VERSION = util.call_subprocess(get_version_cmd, show_stdout=False)
 
-XPPKG_CATEGORIES_URL = urlparse.urljoin(XPPKG_REPOS_URL,'categories.txt')
+XPPKG_CATEGORIES_URL = urljoin(XPPKG_REPOS_URL,'categories.txt')
 XPPKG_CATEGORIES = urllib.urlopen(XPPKG_CATEGORIES_URL).read().split('\n')
 
 if __name__ == '__main__':

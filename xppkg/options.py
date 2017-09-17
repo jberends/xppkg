@@ -1,5 +1,5 @@
 import docopt
-from __init__ import __version__
+from xppkg import __version__
 
 __author__ = 'jochem'
 

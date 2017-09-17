@@ -3,8 +3,10 @@ Takes snapshot of a directory and stores that inside a YAML file
 """
 import fnmatch
 import os
-import  util
-from log import logger
+from os.path import getmtime
+
+from xppkg import util
+from xppkg.log import logger
 
 SNAPSHOT_PATHNAME = 'snap.yml'
 
@@ -45,7 +47,7 @@ def snapshot(path=None, ignore_filters=None, md5=False, size=False, datetime=Fal
     dirpaths = []
 
     if not os.path.isdir(path):
-        raise IOError, ('Directory %s not found, unable to make a snapshot of it', path)
+        raise IOError('Directory %s not found, unable to make a snapshot of it', path)
 
     logger.notify('Starting the snapshot')
     if ignore_filters:

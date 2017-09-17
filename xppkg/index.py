@@ -3,9 +3,8 @@
 
 import posixpath
 import re
-import urlparse
-from util import Inf
-from util import splitext
+from xppkg.util import Inf
+from xppkg.util import splitext
 
 class Link(object):
 

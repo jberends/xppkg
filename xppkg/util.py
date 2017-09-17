@@ -10,8 +10,8 @@ import subprocess
 import sys
 import posixpath
 import zipfile
-from backwardcompat import console_to_str
-from log import logger
+from .backwardcompat import console_to_str
+from .log import logger
 import hashlib
 
 #######

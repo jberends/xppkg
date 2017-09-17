@@ -14,9 +14,9 @@ import shutil
 import tempfile
 import urllib
 import urllib2
-import urlparse
+from requests.compat import urlparse
 import sys
-from xppkg.backwardcompat import string_types
+from xppkg.backwardcompat import string_types, raw_input
 from xppkg.exceptions import InstallationError
 from xppkg.util import create_download_cache_folder, splitext, format_size, display_path, backup_dir, ask_path_exists, unpack_file, cache_download
 from xppkg.log import logger

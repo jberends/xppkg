@@ -1,5 +1,5 @@
-from backwardcompat import main_during_development
-from util import launch_link
+from xppkg.backwardcompat import main_during_development
+from xppkg.util import launch_link
 import sys
 
 __author__ = 'Jochem Berends <jberends+xppkg@jbits.nl>'
@@ -9,6 +9,7 @@ QUESTIONNAIRE_URL = 'http://bit.ly/XPPKGQ1'
 
 # This version is used by the setup.py
 __version__ = '0.3dev.3'
+version = __version__
 
 
 if __name__ == "__main__":

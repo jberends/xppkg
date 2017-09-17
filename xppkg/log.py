@@ -29,7 +29,8 @@ Logging
 
 import sys
 import logging
-import backwardcompat
+
+from xppkg import backwardcompat
 
 
 class Logger(object):
